@@ -4,11 +4,15 @@ class Node:
         self.adjacents = []
         self.position  = None
         self.visited   = False
+        self.type = '-'
+        self.id = -1
 
-    def __init__(self, adjacents, position):
+    def __init__(self, adjacents, position, node_type, node_id):
         self.adjacents = adjacents
         self.position  = position
         self.visited   = False
+        self.type = node_type
+        self.id = node_id
 
     def set_position(position):
         self.position = position
@@ -30,3 +34,6 @@ class Node:
 
     def is_visited(self):
         return self.visited
+            
+    def get_id(self):
+        return self.id

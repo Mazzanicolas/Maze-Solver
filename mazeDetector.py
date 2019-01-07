@@ -34,13 +34,15 @@ class MazeDetector:
         for row_index, row in enumerate(binary_maze):
             for column_index, positon in enumerate(row):
                 if row[column_index] == 1:
-                    available_positions.append((row_index, column_index, row_index + column_index))
+                    available_positions.append((row_index, column_index))
         return available_positions
 
     def convert_to_nodes(self, available_positions):
         nodes = []
-        for position in available_positions:
-            x, y, x_plus_y = position
-            node = Node([], (x, y))
+        for index, position in enumerate(available_positions):
+            node = Node([], position, "-", index)
             nodes.append(node)
         return nodes
+    
+    def get_id(self):
+        return self.node_id
